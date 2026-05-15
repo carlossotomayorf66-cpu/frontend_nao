@@ -22,13 +22,17 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.empresagaby.app"
+      "package": "com.empresagaby.app",
+      "usesCleartextTraffic": true
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "extra": {
-      "apiUrl": "http://localhost:3001/api"
+      "apiUrl": "https://hostile-hermina-homiletically.ngrok-free.dev/api",
+      "eas": {
+        "projectId": "d1124c20-661a-4b1e-bea3-933c73d7dde3"
+      }
     }
   }
 }

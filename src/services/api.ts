@@ -1,8 +1,11 @@
 import axios from 'axios';
-import { useAuthStore } from '../store/authStore.js';
+import { useAuthStore } from '../store/authStore';
 
 const api = axios.create({
-  baseURL: 'http://localhost:3001/api', // Cambiar a la IP de tu PC para probar en dispositivo real
+  baseURL: 'https://hostile-hermina-homiletically.ngrok-free.dev/api',
+  headers: {
+    'ngrok-skip-browser-warning': 'true'
+  }
 });
 
 api.interceptors.request.use((config) => {

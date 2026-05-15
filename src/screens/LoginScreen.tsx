@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, KeyboardAvoidingView, Platform, ScrollView, Alert } from 'react-native';
-import { theme } from '../theme/index.js';
-import { CustomInput } from '../components/CustomInput.js';
-import { CustomButton } from '../components/CustomButton.js';
-import { useAuthStore } from '../store/authStore.js';
-import api from '../services/api.js';
+import { theme } from '../theme/index';
+import { CustomInput } from '../components/CustomInput';
+import { CustomButton } from '../components/CustomButton';
+import { useAuthStore } from '../store/authStore';
+import api from '../services/api';
 
 export const LoginScreen = () => {
   const [email, setEmail] = useState('');

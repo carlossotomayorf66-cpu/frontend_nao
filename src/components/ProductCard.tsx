@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import { theme } from '../theme/index.js';
-import { Product } from '../store/productStore.js';
+import { theme } from '../theme/index';
+import { Product } from '../store/productStore';
 import { Package, Trash2, Edit } from 'lucide-react-native';
 
 interface Props {
@@ -24,7 +24,7 @@ export const ProductCard = ({ product, onEdit, onDelete }: Props) => {
         </View>
         <Text style={styles.description} numberOfLines={2}>{product.description}</Text>
         <View style={styles.footer}>
-          <Text style={styles.price}>${product.price.toFixed(2)}</Text>
+          <Text style={styles.price}>${Number(product.price || 0).toFixed(2)}</Text>
           <View style={styles.stockContainer}>
             <Package size={14} color={theme.colors.textLight} />
             <Text style={styles.stock}> Stock: {product.stock}</Text>

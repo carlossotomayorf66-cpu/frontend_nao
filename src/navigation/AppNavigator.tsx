@@ -2,12 +2,13 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { useAuthStore } from '../store/authStore.js';
-import { LoginScreen } from '../screens/LoginScreen.js';
-import { HomeScreen } from '../screens/HomeScreen.js';
-import { ProductFormScreen } from '../screens/ProductFormScreen.js';
-import { ClientScreen } from '../screens/ClientScreen.js';
-import { theme } from '../theme/index.js';
+import { useAuthStore } from '../store/authStore';
+import { LoginScreen } from '../screens/LoginScreen';
+import { HomeScreen } from '../screens/HomeScreen';
+import { ProductFormScreen } from '../screens/ProductFormScreen';
+import { ClientScreen } from '../screens/ClientScreen';
+import { ClientFormScreen } from '../screens/ClientFormScreen';
+import { theme } from '../theme/index';
 import { ShoppingBag, Users } from 'lucide-react-native';
 
 const Stack = createStackNavigator();
@@ -48,6 +49,7 @@ export const AppNavigator = () => {
           <>
             <Stack.Screen name="Main" component={MainTabs} />
             <Stack.Screen name="ProductForm" component={ProductFormScreen} />
+            <Stack.Screen name="ClientForm" component={ClientFormScreen} />
           </>
         )}
       </Stack.Navigator>

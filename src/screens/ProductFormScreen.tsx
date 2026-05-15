@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, ScrollView, Alert, KeyboardAvoidingView, Platform } from 'react-native';
-import { theme } from '../theme/index.js';
-import { CustomInput } from '../components/CustomInput.js';
-import { CustomButton } from '../components/CustomButton.js';
-import { useProductStore, Product } from '../store/productStore.js';
+import { theme } from '../theme/index';
+import { CustomInput } from '../components/CustomInput';
+import { CustomButton } from '../components/CustomButton';
+import { useProductStore, Product } from '../store/productStore';
 import { ChevronLeft } from 'lucide-react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 

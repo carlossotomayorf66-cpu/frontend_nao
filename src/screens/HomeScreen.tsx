@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, FlatList, ActivityIndicator, TouchableOpacity, Alert } from 'react-native';
-import { theme } from '../theme/index.js';
-import { ProductCard } from '../components/ProductCard.js';
-import { useProductStore } from '../store/productStore.js';
+import { theme } from '../theme/index';
+import { ProductCard } from '../components/ProductCard';
+import { useProductStore } from '../store/productStore';
 import { Plus, RefreshCcw, LogOut } from 'lucide-react-native';
-import { useAuthStore } from '../store/authStore.js';
+import { useAuthStore } from '../store/authStore';
 
 export const HomeScreen = ({ navigation }: any) => {
   const { products, isLoading, fetchProducts, deleteProduct } = useProductStore();

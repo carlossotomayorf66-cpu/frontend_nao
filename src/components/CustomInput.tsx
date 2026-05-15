@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, TextInput, Text, StyleSheet } from 'react-native';
-import { theme } from '../theme/index.js';
+import { theme } from '../theme/index';
 
 interface Props {
   label: string;
@@ -8,7 +8,7 @@ interface Props {
   value: string;
   onChangeText: (text: string) => void;
   secureTextEntry?: boolean;
-  keyboardType?: 'default' | 'numeric' | 'email-address';
+  keyboardType?: 'default' | 'numeric' | 'email-address' | 'phone-pad';
   error?: string;
 }
 

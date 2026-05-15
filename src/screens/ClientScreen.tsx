@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, FlatList, ActivityIndicator, TouchableOpacity, Alert } from 'react-native';
-import { theme } from '../theme/index.js';
-import { useClientStore } from '../store/clientStore.js';
-import { UserPlus, Phone, Mail, Trash2 } from 'lucide-react-native';
+import { theme } from '../theme/index';
+import { useClientStore } from '../store/clientStore';
+import { UserPlus, Phone, Mail, Trash2, Edit } from 'lucide-react-native';
 
-export const ClientScreen = () => {
+export const ClientScreen = ({ navigation }: any) => {
   const { clients, isLoading, fetchClients, deleteClient } = useClientStore();
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export const ClientScreen = () => {
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>Clientes</Text>
-        <TouchableOpacity style={styles.addButton}>
+        <TouchableOpacity style={styles.addButton} onPress={() => navigation.navigate('ClientForm')}>
           <UserPlus size={24} color={theme.colors.primary} />
         </TouchableOpacity>
       </View>
@@ -50,12 +50,22 @@ export const ClientScreen = () => {
                   <Text style={styles.detail}> {item.phone || 'N/A'}</Text>
                 </View>
               </View>
-              <TouchableOpacity onPress={() => item.id && handleDelete(item.id)}>
-                <Trash2 size={20} color={theme.colors.error} />
-              </TouchableOpacity>
+              <View style={styles.actions}>
+                <TouchableOpacity style={styles.actionButton} onPress={() => navigation.navigate('ClientForm', { client: item })}>
+                  <Edit size={20} color={theme.colors.primary} />
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.actionButton} onPress={() => item.id && handleDelete(item.id)}>
+                  <Trash2 size={20} color={theme.colors.error} />
+                </TouchableOpacity>
+              </View>
             </View>
           )}
           contentContainerStyle={styles.list}
+          ListEmptyComponent={
+            <View style={styles.empty}>
+              <Text style={styles.emptyText}>No hay clientes registrados</Text>
+            </View>
+          }
         />
       )}
     </View>
@@ -118,5 +128,21 @@ const styles = StyleSheet.create({
   detail: {
     fontSize: 14,
     color: theme.colors.textLight,
+  },
+  actions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  actionButton: {
+    marginLeft: theme.spacing.md,
+    padding: 4,
+  },
+  empty: {
+    alignItems: 'center',
+    marginTop: 50,
+  },
+  emptyText: {
+    color: theme.colors.textLight,
+    fontSize: 16,
   },
 });
